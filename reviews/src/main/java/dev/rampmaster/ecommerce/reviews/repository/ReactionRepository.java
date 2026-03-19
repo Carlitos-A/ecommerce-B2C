@@ -1,13 +1,14 @@
 package dev.rampmaster.ecommerce.reviews.repository;
 
-import dev.rampmaster.ecommerce.reviews.model.Reaction;
-import dev.rampmaster.ecommerce.reviews.model.ReactionType;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
+import dev.rampmaster.ecommerce.reviews.model.Reaction;
+import dev.rampmaster.ecommerce.reviews.model.ReactionType;
 
-public interface ReactionRepository extends JpaRepository<Reaction, Long> {
+public interface ReactionRepository
+        extends JpaRepository<Reaction, Long> {
 
     Optional<Reaction> findByReviewIdAndUserId(Long reviewId, Long userId);
 
