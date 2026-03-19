@@ -16,11 +16,11 @@ public class ReviewRepository {
     private final Map<Long, Review> storage = new ConcurrentHashMap<>();
     private final AtomicLong sequence = new AtomicLong(0);
 
-    public ReviewRepository() {
-        save(new Review(null, 1L, 5, "Excelente rendimiento y bateria"));
-        save(new Review(null, 2L, 4, "Buen sonido, pero almohadillas ajustadas"));
-        save(new Review(null, 3L, 5, "Muy comodo para uso prolongado"));
-    }
+      public ReviewRepository() {
+        save(new Review(null, 1L, 5, "Excelente rendimiento y bateria","2026-03-18T14:30:00",12,"aprobado",10,1));
+        save(new Review(null, 2L, 4, "Buen sonido, pero almohadillas ajustadas","2026-03-18T14:30:00",13,"aprobado",10,1));
+        save(new Review(null, 3L, 5, "Muy comodo para uso prolongado","2026-03-18T14:30:00",123,"aprobado",10,1));
+    } 
 
     public List<Review> findAll() {
         return new ArrayList<>(storage.values());
