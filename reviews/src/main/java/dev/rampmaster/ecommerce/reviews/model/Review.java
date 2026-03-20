@@ -1,5 +1,6 @@
 package dev.rampmaster.ecommerce.reviews.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,7 +24,7 @@ public class Review {
     private String comment;
 
     private String horaCreacion;
-    private Integer userId;
+    private Long userId;
     private String status;
 
     public Review() {
@@ -31,7 +32,7 @@ public class Review {
 
     public Review(Long id, Long productId, Integer rating,
             String comment, String horaCreacion,
-            Integer userId, String status) {
+            Long userId, String status) {
         this.id = id;
         this.productId = productId;
         this.rating = rating;
@@ -61,7 +62,7 @@ public class Review {
         return horaCreacion;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
@@ -89,7 +90,7 @@ public class Review {
         this.horaCreacion = horaCreacion;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
