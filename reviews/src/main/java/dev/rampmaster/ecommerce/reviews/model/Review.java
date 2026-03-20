@@ -1,7 +1,10 @@
 package dev.rampmaster.ecommerce.reviews.model;
 
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "reviews")
@@ -11,7 +14,6 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "product_id", nullable = false)
     private Long productId;
 
     @Column(nullable = false)
@@ -20,22 +22,16 @@ public class Review {
     @Column(length = 500)
     private String comment;
 
-    private LocalDateTime horaCreacion;
-
-    private Long userId;
-
+    private String horaCreacion;
+    private Integer userId;
     private String status;
-
-    private Integer likes;
-
-    private Integer dislikes;
 
     public Review() {
     }
 
-    public Review(Long id, Long productId, Integer rating, String comment,
-                  LocalDateTime horaCreacion, Long userId, String status,
-                  Integer likes, Integer dislikes) {
+    public Review(Long id, Long productId, Integer rating,
+            String comment, String horaCreacion,
+            Integer userId, String status) {
         this.id = id;
         this.productId = productId;
         this.rating = rating;
@@ -43,8 +39,6 @@ public class Review {
         this.horaCreacion = horaCreacion;
         this.userId = userId;
         this.status = status;
-        this.likes = likes;
-        this.dislikes = dislikes;
     }
 
     public Long getId() {
@@ -63,24 +57,16 @@ public class Review {
         return comment;
     }
 
-    public LocalDateTime getHoraCreacion() {
+    public String getHoraCreacion() {
         return horaCreacion;
     }
 
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
     public String getStatus() {
         return status;
-    }
-
-    public Integer getLikes() {
-        return likes;
-    }
-
-    public Integer getDislikes() {
-        return dislikes;
     }
 
     public void setId(Long id) {
@@ -99,23 +85,15 @@ public class Review {
         this.comment = comment;
     }
 
-    public void setHoraCreacion(LocalDateTime horaCreacion) {
+    public void setHoraCreacion(String horaCreacion) {
         this.horaCreacion = horaCreacion;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public void setLikes(Integer likes) {
-        this.likes = likes;
-    }
-
-    public void setDislikes(Integer dislikes) {
-        this.dislikes = dislikes;
     }
 }
