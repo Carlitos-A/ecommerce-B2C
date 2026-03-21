@@ -22,7 +22,7 @@ public class Reaction {
     @Enumerated(EnumType.STRING)
     private ReactionType type;
 
-    // getters y setters
+
 
     public Long getId() {
         return id;
