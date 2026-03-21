@@ -82,6 +82,7 @@ public class ReviewController {
         return ResponseEntity.noContent().build();
     }
 
+    
     @GetMapping("/{id}/reactions/stats")
     public ResponseEntity<Map<String, Long>> getStats(@PathVariable Long id) {
         return ResponseEntity.ok(reactionService.getStats(id));
